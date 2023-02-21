@@ -18,7 +18,8 @@ Things I still need to do:
 - Make the snake green.
 - Add sounds.
 - Create a border for the game field.
-===
+
+
 21.2.2023
 ---
 This is the last cersion of the project.
