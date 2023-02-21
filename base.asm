@@ -137,6 +137,7 @@ endp CopyBitmap
 
 
 proc print_4x4
+;prints a 4x4 area to the screen
 	push ax
 	push bx
 	push cx
@@ -210,6 +211,7 @@ endp print_4x4
 
 
 proc print_apple
+;like print_4x4 but without corners
 	push ax
 	push bx
 	push cx
@@ -275,6 +277,7 @@ endp print_apple
 
 
 proc get_pixel
+;reads a pixel from the screen
 	push ax
 	push bx
 	push cx
@@ -299,7 +302,7 @@ endp get_pixel
 
 
 proc get_input
-;change based on the last input
+;change snake at index 0 based on the last input
 	cmp al, 0
 	jz mid_jump
 
@@ -384,6 +387,7 @@ endp get_input
 
 
 proc update_snake
+;update the rest of the snake based on get_input
 	cmp [snake], 1
 	je move_down
 
@@ -435,6 +439,7 @@ endp update_snake
 
 
 proc print_snake
+;prints the snake to the screen
 	mov [color], 0Ah
 	mov ax, [head_x]
 	mov bx, [head_y]
@@ -487,6 +492,7 @@ endp print_snake
 
 
 proc create_apple
+;a ton of randomizers that generate an apple to the screen
 	mov [color], 4
 
 	mov ax, [es:6Ch]
@@ -550,6 +556,7 @@ endp create_apple
 
 
 proc apple_collision
+;checks if the snake is colliding with the apple
 	mov bx, [head_x]
 	cmp [apple_x], bx
 	jne no_collision
@@ -581,6 +588,7 @@ endp apple_collision
 
 
 proc structure
+;print the borders and background of the game
 	mov [color], 9
 	mov [y], 8
 
@@ -638,6 +646,7 @@ endp structure
 
 
 proc is_colliding
+;check if the player messed up
 	mov bh, 0
 	mov cx, [head_x]
 	mov dx, [head_y]
@@ -691,6 +700,7 @@ endp is_colliding
 
 
 proc reset
+;reset the game
 	xor si, si
 reset_loop:
 	mov ah, [reset_snake+si]
@@ -710,6 +720,7 @@ endp reset
 
 
 proc print_screen
+;does the magic for the starting screen
 print_screen_continue:
 ; Process BMP file
 	mov ax, 13h
@@ -740,6 +751,7 @@ endp print_screen
 
 
 start:
+;calls everything and delays
 	mov ax, @data
 	mov ds, ax
 
