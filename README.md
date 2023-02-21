@@ -18,3 +18,10 @@ Things I still need to do:
 - Make the snake green.
 - Add sounds.
 - Create a border for the game field.
+
+===
+21.2.2023
+---
+This is the last cersion of the project.
+Other than sounds and a score counter which were apparently very difficult to implement in assembly (and for that reason did not make it to this version of the game), I have implemented every feature that is listed on 5.2.2023.
+I hope you like the game and enjoy it enough to quit the google version :)
